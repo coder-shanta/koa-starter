@@ -39,7 +39,7 @@ router.post('/login', async (ctx) => {
         if (user === null)
             return (ctx.body = {
                 success: false,
-                message: 'No user registerd with this email.'
+                message: "Email and password don't match."
             });
 
         const match = bcrypt.compareSync(ctx.request.body.password, user.hash);
